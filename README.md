@@ -19,3 +19,11 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+# BlogFrontEnd
+博客系统的前端代码，
+使用vue Cli ，vue2.x版本构建前端项目，
+使用ElementUI构建页面，
+使用axios进行与后端的交互，
+集成mavonEditor富文本编辑器
