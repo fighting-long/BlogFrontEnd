@@ -8,8 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
 
 Vue.prototype.$http=axios;
-Vue.prototype.myAddress='http://localhost:80'
-Vue.prototype.myAddressBack='http://localhost:80/admin'
+Vue.prototype.myAddress='http://127.0.0.1:80'
+Vue.prototype.myAddressBack='http://127.0.0.1:80/admin'
 
 // 组件传值需要的vue对象
 Vue.prototype.EventBus=new Vue()

@@ -14,7 +14,7 @@
       </el-row>
       <el-row>
         <el-col :span="16" :push="4">
-        <el-image :src="url">
+        <el-image :src="url" style="width: 975px;height: 605px">
           <div slot="error" class="image-slot">
             <i class="el-icon-picture-outline"></i>
           </div>
@@ -32,7 +32,7 @@
         name: "Backend",
         data(){
           return {
-            url:'http://studywithu.cn/images/liuli.jpg',
+            url:'http://studywithu.cn/static/images/liuli.jpg',
             nickname:''
           }
         },
@@ -60,5 +60,6 @@
   .image-slot{
     text-align: center;
     line-height: 600px;
+    margin:auto;
   }
 </style>

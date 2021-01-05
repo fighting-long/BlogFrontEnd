@@ -14,7 +14,14 @@
               <!--一级评论-->
               <el-row @mouseenter.native="change(comment.id)" @mouseleave.native="change(-1)">
                 <el-col :span="1.5">
-                  <el-image :src="comment.avatar" style="height: 50px;width: 50px"></el-image>
+                  <el-image :src="comment.avatar" style="height: 50px;width: 50px">
+                    <div slot="error" class="image-slot">
+                      <i class="el-icon-picture-outline"></i>
+                    </div>
+                    <div slot="placeholder" class="image-slot">
+                      <i class="el-icon-loading"></i>
+                    </div>
+                  </el-image>
                 </el-col>
                 <el-col :span="22" style="margin-left: 5px">
                   <el-row style="line-height: 10px">
@@ -42,7 +49,14 @@
               <el-row style="margin: 5px 0" v-for="reply in comment.replyComments" :key="reply.id"
                       @mouseenter.native="change(reply.id)" @mouseleave.native="change(-1)">
                 <el-col :span="1" :push="1">
-                  <el-image :src="reply.avatar" style="height: 50px;width: 50px"></el-image>
+                  <el-image :src="reply.avatar" style="height: 50px;width: 50px">
+                    <div slot="error" class="image-slot">
+                      <i class="el-icon-picture-outline"></i>
+                    </div>
+                    <div slot="placeholder" class="image-slot">
+                      <i class="el-icon-loading"></i>
+                    </div>
+                  </el-image>
                 </el-col>
                 <el-col :span="20" style="margin-left: 55px">
                   <el-row style="line-height: 10px">
@@ -188,5 +202,8 @@
 </script>
 
 <style scoped>
-
+  .image-slot{
+    text-align: center;
+    line-height: 50px;
+  }
 </style>
