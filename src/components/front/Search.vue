@@ -25,7 +25,7 @@
                   <el-col :span="4">
                     <div style="height: 28px;line-height: 28px">
                       <el-avatar size="small" :src="blog.user.avatar" fit="fit"></el-avatar>
-                      <el-link href="#/aboutme" type="info" :underline="false" style="margin-bottom:18px">
+                      <el-link href="#/aboutme" target="_blank" type="info" :underline="false" style="margin-bottom:18px">
                         {{blog.user.nickname}}
                       </el-link>
                     </div>
@@ -56,14 +56,16 @@
             </el-row>
           </el-col>
           <el-col :span="5" style="height: 150px">
-            <el-image :src="blog.firstPicture" alt="" style="height: 150px;width: 200px;margin-left: 15px" fit="fit">
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-              <div slot="placeholder" class="image-slot">
-                <i class="el-icon-loading"></i>
-              </div>
-            </el-image>
+            <el-link :underline="false" target="_blank" :href="'#/blogDetail/'+blog.id">
+              <el-image :src="blog.firstPicture" alt="" style="height: 150px;width: 200px;margin-left: 15px" fit="fit">
+                <div slot="error" class="image-slot">
+                  <i class="el-icon-picture-outline"></i>
+                </div>
+                <div slot="placeholder" class="image-slot">
+                  <i class="el-icon-loading"></i>
+                </div>
+              </el-image>
+            </el-link>
           </el-col>
         </el-row>
         <el-divider></el-divider>
