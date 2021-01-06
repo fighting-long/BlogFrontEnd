@@ -6,10 +6,14 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
+import {myAddress,myAddressBack} from "@/assets/js/address";
 
 Vue.prototype.$http=axios;
-Vue.prototype.myAddress='http://127.0.0.1:80'
-Vue.prototype.myAddressBack='http://127.0.0.1:80/admin'
+Vue.prototype.myAddress=myAddress
+Vue.prototype.myAddressBack=myAddressBack
+//example
+// Vue.prototype.myAddress='http://127.0.0.1:80/blog'
+// Vue.prototype.myAddressBack='http://127.0.0.1:80/blog/admin'
 
 // 组件传值需要的vue对象
 Vue.prototype.EventBus=new Vue()

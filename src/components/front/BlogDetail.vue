@@ -131,7 +131,6 @@
       }
     },
     created() {
-      scrollTo(0, 0)
       this.getBlogDetail(this.$route.params.id)
     },
     methods: {
@@ -139,10 +138,19 @@
         return date.getFullYear() + "-" + (date.getMonth() + 1) + '-' + date.getDate()
       },
       getBlogDetail(id){
+        scrollTo(0, 0)
         this.$http.get(this.myAddress+'/getBlogDetail/'+id).then(resp=>{
           this.detail=resp.data.data
           prism()
         })
+      }
+    },
+    watch : {   // 监听路由跳转，解决在同一个页面进行跳转,在页脚最新博客 进行跳转无效
+      $route : {
+        handler :function (val,oldVal) {
+          this.getBlogDetail(val.params.id)
+        },
+        deep : true
       }
     }
   }
