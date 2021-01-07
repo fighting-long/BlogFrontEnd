@@ -1,7 +1,7 @@
 <template>
   <el-row style="height: 60px">
     <el-col :span="4">
-      <el-link :underline="false" href="#/" style="float: right;line-height: 60px;font-size: 20px;color: #409eff;margin-right: 10px">BLOG</el-link>
+      <el-link :underline="false" href="#/" target="_blank" style="float: right;line-height: 60px;font-size: 20px;color: #409eff;margin-right: 10px">BLOG</el-link>
     </el-col>
     <el-col :span="15" >
       <el-menu :default-active="isActive" class="el-menu-demo" mode="horizontal" router background-color="#B3C0D1">
@@ -42,7 +42,8 @@
         //routers: ['/', '/admin/editBlog', '/admin/editType', '/admin/editTag'],
         nickname: '',
         hasUnChecked: false,
-        commentCount:0
+        commentCount:0,
+        websocket:null
       }
     },
     methods: {
@@ -87,10 +88,31 @@
             this.commentCount=resp.data.data.length
         })
       },
+      initWebSocket(){
+        this.websocket=new WebSocket('ws://localhost/comment')
+        this.websocket.onopen=this.onopen
+        this.websocket.onclose=this.onclose
+        this.websocket.onmessage=this.onMessage
+      },
+      onopen() {
+        console.log("webSocket连接！")
+      },
+      onMessage(data){
+        if(data.data){
+            this.getCommentInfo()
+        }
+      },
+      onclose(){
+        console.log("webSocket断开！")
+      }
     },
     created() {
+      this.initWebSocket()
       this.getUserBack()
       this.isActive=this.$route.path
+    },
+    destroyed() {
+      this.onclose()
     },
     watch : {   // 监听路由跳转，在同一个页面进行跳转回丢失高亮
       $route : {
@@ -101,15 +123,15 @@
         }
       }
     },
-    mounted() {
-      //刷新是否有新的评论，展示出提示
-      const _this=this
-      this.EventBus.$on('flush',function (data) {
-        if(data){
-          _this.getCommentInfo()
-        }
-      })
-    }
+    // mounted() {
+    //   //刷新是否有新的评论，展示出提示
+    //   const _this=this
+    //   this.EventBus.$on('flush',function (data) {
+    //     if(data){
+    //       _this.getCommentInfo()
+    //     }
+    //   })
+    // }
   }
 </script>
 

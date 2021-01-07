@@ -130,7 +130,7 @@
             headers:{token: localStorage.getItem('token')}
           }).then(resp=>{
             if(resp.data.code===200){
-              this.EventBus.$emit('flush',true)
+              //this.EventBus.$emit('flush',true)
               this.$message({type: 'success', message: '已读成功!'});
             }else {
               this.$message({type: 'error', message: resp.data.message});
@@ -145,7 +145,7 @@
             headers:{token: localStorage.getItem('token')}
           }).then(resp=>{
             if(resp.data.code===200){
-              this.EventBus.$emit('flush',true)
+              //this.EventBus.$emit('flush',true)
               this.$message({type: 'success', message: '已读全部!'});
             }else {
               this.$message({type: 'error', message: resp.data.message});

@@ -16,7 +16,7 @@ Vue.prototype.myAddressBack=myAddressBack
 // Vue.prototype.myAddressBack='http://127.0.0.1:80/blog/admin'
 
 // 组件传值需要的vue对象
-Vue.prototype.EventBus=new Vue()
+//Vue.prototype.EventBus=new Vue()
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 

@@ -36,7 +36,7 @@
                 this.$router.push({path:'/search',query: {keywd:this.keywd}})
               }
               //组件传值
-              //this.$EventBus.$emit('sendMsg',this.keyword)
+              //this.EventBus.$emit('sendMsg',this.keyword)
             }
         },
         created() {

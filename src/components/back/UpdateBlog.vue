@@ -155,7 +155,6 @@
           this.blog=resp.data.data
         })
       }
-
     },
     created() {
       this.findTypes()

@@ -154,7 +154,6 @@
     created() {
       this.findTypes()
       this.findTags()
-
     }
   }
 </script>
