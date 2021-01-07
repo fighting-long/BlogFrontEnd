@@ -34,6 +34,7 @@
 </template>
 
 <script>
+  import {webSocketAddress} from "@/assets/js/address";
   export default {
     name: "BackHeader",
     data() {
@@ -89,7 +90,7 @@
         })
       },
       initWebSocket(){
-        this.websocket=new WebSocket('ws://localhost/comment')
+        this.websocket=new WebSocket(webSocketAddress+'/comment')
         this.websocket.onopen=this.onopen
         this.websocket.onclose=this.onclose
         this.websocket.onmessage=this.onMessage
