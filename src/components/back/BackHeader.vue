@@ -108,8 +108,8 @@
       }
     },
     created() {
-      this.initWebSocket()
       this.getUserBack()
+      this.initWebSocket()
       this.isActive=this.$route.path
     },
     destroyed() {
