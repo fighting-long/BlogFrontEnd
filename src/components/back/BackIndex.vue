@@ -32,7 +32,7 @@
         name: "Backend",
         data(){
           return {
-            url:'http://studywithu.cn/static/images/liuli.jpg',
+            url:'http://studywithu.cn/statics/index/liuli.jpg',
             nickname:''
           }
         },
