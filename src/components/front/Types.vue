@@ -46,7 +46,7 @@
                   <el-col :span="5">
                     <div style="height: 28px;line-height: 28px">
                       <i class="el-icon-date"></i>
-                      <span v-text="formatDate(new Date(blog.updateTime))"></span>
+                      <span>{{new Date(blog.updateTime).format('yyyy-MM-dd')}}</span>
                     </div>
                   </el-col>
                   <el-col :span="9">
@@ -114,9 +114,6 @@
       }
     },
     methods: {
-      formatDate(date) {
-        return date.getFullYear() + "-" + (date.getMonth() + 1) + '-' + date.getDate()
-      },
       getTypes() {
         this.$http.get(this.myAddress + '/getTypeAll').then(resp => {
           this.types = resp.data.data

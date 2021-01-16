@@ -11,7 +11,7 @@
         <el-timeline style="padding-left: 0">
             <div v-for="(item,index) in archive.data" :key="index">
               <h1>{{item.year}}</h1>
-              <el-timeline-item v-for="blog in item.blogs" :key="blog.id" :timestamp="formatDate(new Date(blog.createTime))" placement="top">
+              <el-timeline-item v-for="blog in item.blogs" :key="blog.id" :timestamp="new Date(blog.createTime).format('yyyy-MM-dd')" placement="top">
                 <el-card>
                   <el-row>
                     <el-col :span="12">
@@ -40,9 +40,6 @@
           }
         },
         methods:{
-          formatDate(date){
-            return date.getFullYear()+"-"+(date.getMonth()+1)+'-'+date.getDate()
-          },
           getBlogArchive(){
             this.$http.get(this.myAddress+'/getArchive').then(resp=>{
                 this.archive=resp.data

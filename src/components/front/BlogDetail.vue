@@ -20,7 +20,7 @@
           <el-col :span="4">
             <div style="height: 28px;line-height: 28px">
               <i class="el-icon-date"></i>
-              <span v-text="formatDate(new Date(detail.updateTime))"></span>
+              <span>{{new Date(detail.updateTime).format('yyyy-MM-dd')}}</span>
             </div>
           </el-col>
           <el-col :span="4">
@@ -134,9 +134,6 @@
       this.getBlogDetail(this.$route.params.id)
     },
     methods: {
-      formatDate(date) {
-        return date.getFullYear() + "-" + (date.getMonth() + 1) + '-' + date.getDate()
-      },
       getBlogDetail(id){
         scrollTo(0, 0)
         this.$http.get(this.myAddress+'/getBlogDetail/'+id).then(resp=>{

@@ -32,7 +32,7 @@
     </el-row>
     <el-row style="margin-top: 10px">
       <el-col :span="11">
-        <el-image :src="info.avatar">
+        <el-image :src="info.avatar" height="760">
           <div slot="error" class="image-slot">
             <i class="el-icon-picture-outline"></i>
           </div>
@@ -42,7 +42,7 @@
         </el-image>
       </el-col>
       <el-col :span="11" :push="2">
-        <el-image :src="info.infoPicture">
+        <el-image :src="info.infoPicture" height="760">
           <div slot="error" class="image-slot">
             <i class="el-icon-picture-outline"></i>
           </div>
@@ -197,5 +197,10 @@
     width: 90px;
     margin-left: 10px;
     vertical-align: bottom;
+  }
+  .image-slot{
+    text-align: center;
+    line-height: 760px;
+    margin:auto;
   }
 </style>

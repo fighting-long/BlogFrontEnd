@@ -7,7 +7,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
 import {myAddress,myAddressBack} from "@/assets/js/address";
+import {format} from "@/assets/js/format";
 
+Date.prototype.format =format
 Vue.prototype.$http=axios;
 Vue.prototype.myAddress=myAddress
 Vue.prototype.myAddressBack=myAddressBack

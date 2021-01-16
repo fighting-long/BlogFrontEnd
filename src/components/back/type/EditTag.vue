@@ -75,9 +75,6 @@
       }
     },
     methods:{
-      formatDate(date){
-        return date.getFullYear()+"-"+(date.getMonth()+1)+'-'+date.getDate()
-      },
       getTag(){
         this.$http.get(this.myAddress+'/getTagAll').then(resp=>{
           this.tags=resp.data.data

@@ -41,7 +41,7 @@
           align="center">
           <template slot-scope="scope">
             <div slot="reference">
-              {{ formatDate(new Date(scope.row.updateTime)) }}
+              {{new Date(scope.row.updateTime).format('yyyy-MM-dd hh:mm:ss')}}
             </div>
           </template>
         </el-table-column>
@@ -103,9 +103,6 @@
         methods:{
           writeBlog(){
             this.$router.push('/admin/writeBlog')
-          },
-          formatDate(date){
-            return date.getFullYear()+"-"+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()
           },
           getBlogsBack(){
             this.$http.get(this.myAddressBack+'/getBlogs',{
