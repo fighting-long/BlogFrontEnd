@@ -58,6 +58,8 @@
             this.$message.error(resp.data.message)
             this.$router.push('/login')
           } else {
+            // 登陆成功
+            this.initWebSocket()
             this.getCommentInfo()
             this.nickname = resp.data.data.nickname
           }
@@ -99,17 +101,33 @@
         console.log("webSocket连接！")
       },
       onMessage(data){
-        if(data.data){
+        // 重新登陆或是退出
+        if("250"===data.data){
+          this.$confirm('你的账号于 '+new Date().format('hh:mm')+' 在另一处登陆，如非本人登陆建议马上修改密码', '下线通知', {
+            confirmButtonText: '重新登陆',
+            cancelButtonText: '退出',
+            type: 'warning'
+          }).then(() => {
+            this.websocket.send("reLogin")
+          }).catch(() => {
+            localStorage.removeItem('token')
+            this.$router.push('/login')
+          });
+        // 重新获取 comment 信息
+        }else if(data.data){
             this.getCommentInfo()
         }
       },
       onclose(){
-        console.log("webSocket断开！")
+        if(this.websocket){
+          this.websocket=null
+          console.log("webSocket断开！")
+        }
       }
     },
     created() {
       this.getUserBack()
-      this.initWebSocket()
+
       this.isActive=this.$route.path
     },
     destroyed() {
