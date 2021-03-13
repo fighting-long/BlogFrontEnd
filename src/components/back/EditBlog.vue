@@ -21,7 +21,7 @@
           align="center">
           <template slot-scope="scope">
             <div slot="reference">
-              <el-link :underline="false" :href="'#/blogDetail/'+scope.row.id">{{ scope.row.title }}</el-link>
+              <el-link :underline="false" target="_blank" :href="'#/blogDetail/'+scope.row.id">{{ scope.row.title }}</el-link>
             </div>
           </template>
         </el-table-column>

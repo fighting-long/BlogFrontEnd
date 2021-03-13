@@ -97,7 +97,7 @@
                      :disabled="startPage===1">上一页
           </el-button>
           <el-button plain type="primary" size="small" @click="getBlogViewByTagId(++startPage,size)"
-                     :disabled="size*startPage>total" style="float: right">下一页
+                     :disabled="size*startPage>=total" style="float: right">下一页
           </el-button>
         </el-col>
       </el-row>

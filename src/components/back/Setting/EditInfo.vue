@@ -118,7 +118,7 @@
     name: "EditInfo",
     data() {
       return {
-        info:{nickname:'',email:'',avatar:'',infoPicture:'',infoDescription:'',userTag:[],techTag:[]},
+        info:{id:null,nickname:'',email:'',avatar:'',infoPicture:'',infoDescription:'',userTag:[],techTag:[]},
         inputVisibleU: false,
         inputValueU: '',
         inputVisibleT: false,
@@ -135,7 +135,7 @@
         this.info.userTag.splice(this.info.userTag.indexOf(tag), 1);
       },
       handleCloseT(tag) {
-        this.info.tecTag.splice(this.info.tecTag.indexOf(tag), 1);
+        this.info.techTag.splice(this.info.techTag.indexOf(tag), 1);
       },
       showInputU() {
         this.inputVisibleU = true;
@@ -160,7 +160,7 @@
       handleInputConfirmT() {
         let inputValue = this.inputValueT;
         if (inputValue) {
-          this.info.tecTag.push(inputValue);
+          this.info.techTag.push(inputValue);
         }
         this.inputVisibleT = false;
         this.inputValueT = '';

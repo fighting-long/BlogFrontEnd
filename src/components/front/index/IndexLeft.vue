@@ -80,7 +80,7 @@
             上一页
           </el-button>
           <el-button plain type="primary" size="small" @click="getBlogView(++startPage,size)"
-                     :disabled="size*startPage>total" style="float: right">下一页
+                     :disabled="size*startPage>=total" style="float: right">下一页
           </el-button>
         </el-col>
       </el-row>

@@ -120,7 +120,8 @@
       },
       onclose(){
         if(this.websocket){
-          this.websocket=null
+          // 真正关闭socket连接
+          this.websocket.close()
           console.log("webSocket断开！")
         }
       }
