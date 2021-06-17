@@ -33,7 +33,7 @@
                   <el-col :span="5">
                     <div style="height: 28px;line-height: 28px">
                       <i class="el-icon-date"></i>
-                      <span v-text="formatDate(new Date(blog.updateTime))"></span>
+                      <span>{{new Date(blog.updateTime).format('yyyy-MM-dd')}}</span>
                     </div>
                   </el-col>
                   <el-col :span="9">
@@ -74,7 +74,7 @@
       <el-row style="height: 30px">
         <el-col :span="24">
           <el-button plain type="primary" size="small" @click="searchBlog(--startPage,size)" :disabled="startPage===1">上一页</el-button>
-          <el-button plain type="primary" size="small" @click="searchBlog(++startPage,size)" :disabled="size*startPage>total" style="float: right">下一页</el-button>
+          <el-button plain type="primary" size="small" @click="searchBlog(++startPage,size)" :disabled="size*startPage>=total" style="float: right">下一页</el-button>
         </el-col>
       </el-row>
     </el-main>
@@ -97,9 +97,6 @@
       }
     },
     methods: {
-      formatDate(date) {
-        return date.getFullYear() + "-" + (date.getMonth() + 1) + '-' + date.getDate()
-      },
       searchBlog(startPage,size){
         if(this.keywd===''){
           this.$message.error('输入查询字段');

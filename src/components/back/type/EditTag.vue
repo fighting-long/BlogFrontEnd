@@ -75,9 +75,6 @@
       }
     },
     methods:{
-      formatDate(date){
-        return date.getFullYear()+"-"+(date.getMonth()+1)+'-'+date.getDate()
-      },
       getTag(){
         this.$http.get(this.myAddress+'/getTagAll').then(resp=>{
           this.tags=resp.data.data
@@ -129,7 +126,7 @@
             }else {
               this.$message({type: 'error', message: '修改失败!'});
             }
-            this.getType()
+            this.getTag()
           })
         }).catch(() => {});
       },

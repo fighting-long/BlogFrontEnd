@@ -80,7 +80,7 @@
   </el-row>
   <el-row style="margin-top: 10px;float: right">
     <el-col>
-      <el-button type="warning" plain >取消</el-button>
+      <el-button type="warning" plain @click="window.history.go(-1)">取消</el-button>
       <el-button type="primary" @click="updateBlog(false)" plain>保存草稿</el-button>
       <el-button type="success" @click="updateBlog(true)" plain>发布</el-button>
     </el-col>

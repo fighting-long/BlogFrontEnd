@@ -1,6 +1,12 @@
-# blogfront
 
-> y
+if you want start this demo, maybe you need this file : @/assets/js/address.js <br/>
+template:
+```javascript
+let myAddress='http://192.168.248.130:80/blog';
+let myAddressBack='http://192.168.248.130:80/blog/admin';
+let webSocketAddress='ws://192.168.248.130:80/blog'
+export {myAddress,myAddressBack,webSocketAddress}
+```
 
 ## Build Setup
 
@@ -22,12 +28,13 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 # BlogFrontEnd
-博客系统的前端代码，
-使用vue cli ，vue2.x版本构建前端项目，
-使用ElementUI构建页面，
-使用axios发送请求，
-集成mavonEditor富文本编辑器
-todo:
-	markdown的上传图片
-	5xx页面
-	4xx页面
+博客系统的前端代码 <br/>
+使用vue cli ，vue2.x版本构建前端项目 <br/>
+使用ElementUI构建页面 <br/>
+使用axios发送请求 <br/>
+集成mavonEditor富文本编辑器 <br/>
+
+todo: <br/>
+markdown的上传图片 <br/>
+5xx页面 <br/>
+4xx页面 <br/>

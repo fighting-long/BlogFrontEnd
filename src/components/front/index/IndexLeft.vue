@@ -36,7 +36,7 @@
                   <el-col :span="6">
                     <div style="height: 28px;line-height: 28px">
                       <i class="el-icon-date"></i>
-                      <span v-text="formatDate(new Date(blog.updateTime))"></span>
+                      <span>{{new Date(blog.updateTime).format('yyyy-MM-dd')}}</span>
                     </div>
                   </el-col>
                   <el-col :span="7">
@@ -80,7 +80,7 @@
             上一页
           </el-button>
           <el-button plain type="primary" size="small" @click="getBlogView(++startPage,size)"
-                     :disabled="size*startPage>total" style="float: right">下一页
+                     :disabled="size*startPage>=total" style="float: right">下一页
           </el-button>
         </el-col>
       </el-row>
@@ -100,9 +100,6 @@
       }
     },
     methods: {
-      formatDate(date) {
-        return date.getFullYear() + "-" + (date.getMonth() + 1) + '-' + date.getDate()
-      },
       getBlogView(startPage, size) {
         this.$http.get(this.myAddress + '/getAllView/' + startPage + '/' + size).then(resp => {
           this.blogView = resp.data.data.records

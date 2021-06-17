@@ -32,7 +32,7 @@
     </el-row>
     <el-row style="margin-top: 10px">
       <el-col :span="11">
-        <el-image :src="info.avatar">
+        <el-image :src="info.avatar" height="760">
           <div slot="error" class="image-slot">
             <i class="el-icon-picture-outline"></i>
           </div>
@@ -42,7 +42,7 @@
         </el-image>
       </el-col>
       <el-col :span="11" :push="2">
-        <el-image :src="info.infoPicture">
+        <el-image :src="info.infoPicture" height="760">
           <div slot="error" class="image-slot">
             <i class="el-icon-picture-outline"></i>
           </div>
@@ -118,7 +118,7 @@
     name: "EditInfo",
     data() {
       return {
-        info:{nickname:'',email:'',avatar:'',infoPicture:'',infoDescription:'',userTag:[],techTag:[]},
+        info:{id:null,nickname:'',email:'',avatar:'',infoPicture:'',infoDescription:'',userTag:[],techTag:[]},
         inputVisibleU: false,
         inputValueU: '',
         inputVisibleT: false,
@@ -135,7 +135,7 @@
         this.info.userTag.splice(this.info.userTag.indexOf(tag), 1);
       },
       handleCloseT(tag) {
-        this.info.tecTag.splice(this.info.tecTag.indexOf(tag), 1);
+        this.info.techTag.splice(this.info.techTag.indexOf(tag), 1);
       },
       showInputU() {
         this.inputVisibleU = true;
@@ -160,7 +160,7 @@
       handleInputConfirmT() {
         let inputValue = this.inputValueT;
         if (inputValue) {
-          this.info.tecTag.push(inputValue);
+          this.info.techTag.push(inputValue);
         }
         this.inputVisibleT = false;
         this.inputValueT = '';
@@ -197,5 +197,10 @@
     width: 90px;
     margin-left: 10px;
     vertical-align: bottom;
+  }
+  .image-slot{
+    text-align: center;
+    line-height: 760px;
+    margin:auto;
   }
 </style>

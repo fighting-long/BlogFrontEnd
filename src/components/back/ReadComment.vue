@@ -50,7 +50,7 @@
           align="center">
           <template slot-scope="scope">
             <div slot="reference">
-              {{formatDate(new Date(scope.row.createTime))}}
+              {{new Date(scope.row.createTime).format('yyyy-MM-dd hh:mm:ss')}}
             </div>
           </template>
         </el-table-column>
@@ -115,9 +115,6 @@
           }
       },
       methods:{
-        formatDate(date){
-          return date.getFullYear()+"-"+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()
-        },
         getComments(){
           this.$http.get(this.myAddressBack+'/listComments',{
             headers:{token: localStorage.getItem('token')}

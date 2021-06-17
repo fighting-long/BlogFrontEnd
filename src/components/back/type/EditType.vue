@@ -75,9 +75,6 @@
       }
     },
     methods:{
-      formatDate(date){
-        return date.getFullYear()+"-"+(date.getMonth()+1)+'-'+date.getDate()
-      },
       getType(){
         this.$http.get(this.myAddress+'/getTypeAll').then(resp=>{
           this.types=resp.data.data

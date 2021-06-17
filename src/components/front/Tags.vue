@@ -46,7 +46,7 @@
                   <el-col :span="5">
                     <div style="height: 28px;line-height: 28px">
                       <i class="el-icon-date"></i>
-                      <span v-text="formatDate(new Date(blog.updateTime))"></span>
+                      <span>{{new Date(blog.updateTime).format('yyyy-MM-dd')}}</span>
                     </div>
                   </el-col>
                   <el-col :span="2">
@@ -86,7 +86,7 @@
                   <i class="el-icon-loading"></i>
                 </div>
               </el-image>
-            </el-link>>
+            </el-link>
           </el-col>
         </el-row>
         <el-divider></el-divider>
@@ -97,7 +97,7 @@
                      :disabled="startPage===1">上一页
           </el-button>
           <el-button plain type="primary" size="small" @click="getBlogViewByTagId(++startPage,size)"
-                     :disabled="size*startPage>total" style="float: right">下一页
+                     :disabled="size*startPage>=total" style="float: right">下一页
           </el-button>
         </el-col>
       </el-row>
@@ -120,9 +120,6 @@
       }
     },
     methods: {
-      formatDate(date) {
-        return date.getFullYear() + "-" + (date.getMonth() + 1) + '-' + date.getDate()
-      },
       getTags() {
         this.$http.get(this.myAddress + '/getTagAll').then(resp => {
           this.tags = resp.data.data
