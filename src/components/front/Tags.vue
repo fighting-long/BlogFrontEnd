@@ -86,7 +86,7 @@
                   <i class="el-icon-loading"></i>
                 </div>
               </el-image>
-            </el-link>>
+            </el-link>
           </el-col>
         </el-row>
         <el-divider></el-divider>

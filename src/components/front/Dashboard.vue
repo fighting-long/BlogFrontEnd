@@ -25,7 +25,11 @@
     },
     created() {
       if(!isPC()){
-        this.$message.warning("暂不支持除PC的其他端口哦!")
+        this.$message({
+          message: '暂不支持除PC的其他端口哦!',
+          type: 'warning',
+          duration: 0
+        });
       }
     },
     components: {

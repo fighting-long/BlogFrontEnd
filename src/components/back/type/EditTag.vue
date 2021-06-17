@@ -126,7 +126,7 @@
             }else {
               this.$message({type: 'error', message: '修改失败!'});
             }
-            this.getType()
+            this.getTag()
           })
         }).catch(() => {});
       },
